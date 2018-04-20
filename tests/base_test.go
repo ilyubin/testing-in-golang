@@ -2,7 +2,7 @@ package tests
 
 import (
 	"github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"testing"
@@ -16,7 +16,7 @@ func TestApi(t *testing.T) {
 	setupCfg()
 	setupLog()
 	setupApp()
-	RegisterFailHandler(ginkgo.Fail)
+	gomega.RegisterFailHandler(ginkgo.Fail)
 	ginkgo.RunSpecs(t, "Api")
 }
 

@@ -3,7 +3,7 @@ package swapi
 import (
 	"fmt"
 	"testing-in-golang/framework/http_client"
-	. "testing-in-golang/framework/model"
+	"testing-in-golang/framework/swapi/model"
 	"github.com/spf13/viper"
 )
 
@@ -13,17 +13,17 @@ func Init() {
 	api = http_client.Init(viper.GetString("swapi.base_url"))
 }
 
-func GetUrls() (out RootResponse) {
+func GetUrls() (out model.RootResponse) {
 	api.GetOk("/", &out)
 	return
 }
 
-func GerPeople() (out PeopleResponse) {
+func GerPeople() (out model.PeopleResponse) {
 	api.GetOk("/people", &out)
 	return
 }
 
-func GetPerson(num int) (out PersonResponse) {
+func GetPerson(num int) (out model.PersonResponse) {
 	api.GetOk(fmt.Sprintf("/people/%d", num), &out)
 	return
 }

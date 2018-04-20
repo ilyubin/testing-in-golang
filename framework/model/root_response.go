@@ -5,6 +5,6 @@ type RootResponse struct {
 	Planets   string `json:"planets"`
 	Films     string `json:"films"`
 	Species   string `json:"species"`
-	Vehicles  string `json:"vehicles"`
+	Vehicles  string      `json:"vehicles"`
 	StarShips string `json:"starships"`
 }

@@ -7,7 +7,6 @@ import (
 
 	"testing-in-golang/framework/extensions"
 
-	"github.com/ahmetb/go-linq"
 	"github.com/ddliu/go-httpclient"
 	"github.com/google/uuid"
 	. "github.com/onsi/gomega"
@@ -43,7 +42,7 @@ func (c *HttpClient) get(path string) *http.Response {
 	logRequest.WithFields(log.Fields{
 		"method":  "GET",
 		"url":     url,
-		"handler": linq.From(strings.Split(extensions.CallerName2(), "/")).Last(),
+		"handler": strings.Split(extensions.CallerName2(), "/")[2],
 	}).Info("Begin request")
 
 	httpclient.Defaults(httpclient.Map{

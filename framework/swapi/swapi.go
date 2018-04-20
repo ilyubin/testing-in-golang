@@ -2,8 +2,8 @@ package swapi
 
 import (
 	"fmt"
-	"ginkgo_pracrtice/framework/http_client"
-	. "ginkgo_pracrtice/framework/model"
+	"testing-in-golang/framework/http_client"
+	. "testing-in-golang/framework/model"
 )
 
 func GetUrls() (out RootResponse) {

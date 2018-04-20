@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"ginkgo_pracrtice/framework/extensions"
+	"testing-in-golang/framework/extensions"
 
 	"github.com/ahmetb/go-linq"
 	"github.com/ddliu/go-httpclient"
@@ -52,8 +52,8 @@ func get(path string) *http.Response {
 	logRequest.WithFields(log.Fields{
 		"error_http_client": err1,
 		//"error_to_string": err2,
-		"status_code": response.StatusCode,
-		//"response_body": body,
+		"status_code":   response.StatusCode,
+		"response_body": response.Response.Body,
 	}).Info("End request")
 
 	return response.Response

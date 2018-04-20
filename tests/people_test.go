@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"ginkgo_pracrtice/framework/swapi"
+	"testing-in-golang/framework/swapi"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

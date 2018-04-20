@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"os"
+	"fmt"
 )
 
 func TestApi(t *testing.T) {
@@ -18,7 +19,13 @@ func TestApi(t *testing.T) {
 }
 
 func setupCfg() {
-	viper.SetDefault("ContentDir", "content")
+	viper.SetConfigName("config")
+	viper.AddConfigPath("..")
+
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic(fmt.Errorf("Fatal error config file: %s \n", err))
+	}
 }
 
 func setupLog() {

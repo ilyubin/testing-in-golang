@@ -12,9 +12,8 @@ import (
 	"github.com/google/uuid"
 	. "github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 )
-
-const BaseUrl = "https://swapi.co/api"
 
 func GetOk(path string, model interface{}) {
 	response := get(path)
@@ -28,7 +27,7 @@ func GetErr(path string, statusCode int) {
 }
 
 func get(path string) *http.Response {
-	url := BaseUrl + path
+	url := viper.GetString("base_url") + path
 
 	logRequest := log.WithFields(log.Fields{"request_id": uuid.New()})
 

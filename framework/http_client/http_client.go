@@ -30,33 +30,31 @@ func GetErr(path string, statusCode int) {
 func get(path string) (*http.Response) {
 	url := BaseUrl + path
 
-	requestId, _ := uuid.NewRandom()
+	logRequest := log.WithFields(log.Fields{"request_id": uuid.New(),})
 
-	log.WithFields(log.Fields{
+	logRequest.WithFields(log.Fields{
 		"method":     "GET",
 		"url":        url,
 		"handler":    linq.From(strings.Split(extensions.CallerName2(), "/")).Last(),
-		"handler2":   extensions.CallerName2(),
-		"request_id": requestId,
-	}).Info()
+	}).Info("Begin request")
 
 	httpclient.Defaults(httpclient.Map{
 		httpclient.OPT_USERAGENT: "my awesome http client",
 		"Accept-Language":        "en-us",
 	})
+
 	response, err1 := httpclient.Get(url)
 	//response2 := &httpclient.Response{}
 	//response2 := response.Response
 	//
 	//body, err2 := response.ToString()
 
-	log.WithFields(log.Fields{
+	logRequest.WithFields(log.Fields{
 		"error_http_client": err1,
 		//"error_to_string": err2,
 		"status_code": response.StatusCode,
 		//"response_body": body,
-		"request_id": requestId,
-	}).Info()
+	}).Info("End request")
 
 	return response.Response
 }

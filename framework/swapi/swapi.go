@@ -4,23 +4,30 @@ import (
 	"fmt"
 	"testing-in-golang/framework/http_client"
 	. "testing-in-golang/framework/model"
+	"github.com/spf13/viper"
 )
 
+var api http_client.HttpClient
+
+func Init() {
+	api = http_client.Init(viper.GetString("swapi.base_url"))
+}
+
 func GetUrls() (out RootResponse) {
-	http_client.GetOk("/", &out)
+	api.GetOk("/", &out)
 	return
 }
 
 func GerPeople() (out PeopleResponse) {
-	http_client.GetOk("/people", &out)
+	api.GetOk("/people", &out)
 	return
 }
 
 func GetPerson(num int) (out PersonResponse) {
-	http_client.GetOk(fmt.Sprintf("/people/%d", num), &out)
+	api.GetOk(fmt.Sprintf("/people/%d", num), &out)
 	return
 }
 
 func GetPersonErr(num int, statusCode int) {
-	http_client.GetErr(fmt.Sprintf("/people/%d", num), statusCode)
+	api.GetErr(fmt.Sprintf("/people/%d", num), statusCode)
 }

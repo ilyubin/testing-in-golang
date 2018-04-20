@@ -12,22 +12,31 @@ import (
 	"github.com/google/uuid"
 	. "github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
 )
 
-func GetOk(path string, model interface{}) {
-	response := get(path)
+type HttpClient struct {
+	BaseUrl string
+}
+
+func Init(baseUrl string) HttpClient  {
+	c := new(HttpClient)
+	c.BaseUrl = baseUrl
+	return *c
+}
+
+func (c *HttpClient) GetOk(path string, model interface{}) {
+	response := c.get(path)
 	Ω(response.StatusCode).Should(Equal(http.StatusOK))
 	decode(response, &model)
 }
 
-func GetErr(path string, statusCode int) {
-	response := get(path)
+func (c *HttpClient) GetErr(path string, statusCode int) {
+	response := c.get(path)
 	Ω(response.StatusCode).Should(Equal(statusCode))
 }
 
-func get(path string) *http.Response {
-	url := viper.GetString("base_url") + path
+func (c *HttpClient) get(path string) *http.Response {
+	url := c.BaseUrl + path
 
 	logRequest := log.WithFields(log.Fields{"request_id": uuid.New()})
 

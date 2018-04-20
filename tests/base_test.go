@@ -1,7 +1,7 @@
 package tests
 
 import (
-	. "github.com/onsi/ginkgo"
+	"github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -9,13 +9,15 @@ import (
 
 	"os"
 	"fmt"
+	"testing-in-golang/framework/swapi"
 )
 
 func TestApi(t *testing.T) {
 	setupCfg()
 	setupLog()
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "Api")
+	setupApp()
+	RegisterFailHandler(ginkgo.Fail)
+	ginkgo.RunSpecs(t, "Api")
 }
 
 func setupCfg() {
@@ -34,13 +36,17 @@ func setupLog() {
 	log.SetLevel(log.DebugLevel)
 }
 
-var _ = BeforeSuite(func() {
+func setupApp() {
+	swapi.Init()
+}
+
+var _ = ginkgo.BeforeSuite(func() {
 	log.WithFields(log.Fields{
 		"suite": "before",
 	}).Info()
 })
 
-var _ = AfterSuite(func() {
+var _ = ginkgo.AfterSuite(func() {
 	log.WithFields(log.Fields{
 		"suite": "after",
 	}).Info()

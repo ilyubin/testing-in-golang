@@ -36,7 +36,7 @@ func get(path string) (*http.Response) {
 		"method":     "GET",
 		"url":        url,
 		"handler":    linq.From(strings.Split(extensions.CallerName2(), "/")).Last(),
-	}).Info("Begin request")
+	}). Info("Begin request")
 
 	httpclient.Defaults(httpclient.Map{
 		httpclient.OPT_USERAGENT: "my awesome http client",

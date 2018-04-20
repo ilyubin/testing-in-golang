@@ -1,9 +1,9 @@
 package tests
 
 import (
+	"ginkgo_pracrtice/framework/swapi"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"ginkgo_pracrtice/framework/swapi"
 )
 
 var _ = Describe("GET /", func() {

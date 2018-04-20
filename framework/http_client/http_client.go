@@ -27,16 +27,16 @@ func GetErr(path string, statusCode int) {
 	Ω(response.StatusCode).Should(Equal(statusCode))
 }
 
-func get(path string) (*http.Response) {
+func get(path string) *http.Response {
 	url := BaseUrl + path
 
-	logRequest := log.WithFields(log.Fields{"request_id": uuid.New(),})
+	logRequest := log.WithFields(log.Fields{"request_id": uuid.New()})
 
 	logRequest.WithFields(log.Fields{
-		"method":     "GET",
-		"url":        url,
-		"handler":    linq.From(strings.Split(extensions.CallerName2(), "/")).Last(),
-	}). Info("Begin request")
+		"method":  "GET",
+		"url":     url,
+		"handler": linq.From(strings.Split(extensions.CallerName2(), "/")).Last(),
+	}).Info("Begin request")
 
 	httpclient.Defaults(httpclient.Map{
 		httpclient.OPT_USERAGENT: "my awesome http client",

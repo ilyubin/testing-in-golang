@@ -2,12 +2,6 @@
 
 
 [[projects]]
-  name = "github.com/ddliu/go-httpclient"
-  packages = ["."]
-  revision = "72917d81d0423a6235790470d15a4d099e3490f9"
-  version = "v0.5.1"
-
-[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
@@ -198,6 +192,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f84519f26bb0a79ae1c6a533568c2f44c3583290134e53652f6cc69634866b8c"
+  inputs-digest = "1b25f26d5efc778aed07ce6e88ee2eaf291a81fdd6403318a2387b51aab56bb7"
   solver-name = "gps-cdcl"
   solver-version = 1

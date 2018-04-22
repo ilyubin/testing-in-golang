@@ -7,10 +7,10 @@ import (
 
 	"testing-in-golang/framework/extensions"
 
-	"github.com/ddliu/go-httpclient"
 	"github.com/google/uuid"
 	. "github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
+	"net/http/httputil"
 )
 
 type HttpClient struct {
@@ -45,25 +45,25 @@ func (c *HttpClient) get(path string) *http.Response {
 		"handler": strings.Split(extensions.CallerName2(), "/")[2],
 	}).Info("Begin request")
 
-	httpclient.Defaults(httpclient.Map{
-		httpclient.OPT_USERAGENT: "my awesome http client",
-		"Accept-Language":        "en-us",
-	})
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Set("X-Custom-Header", "myvalue")
+	req.Header.Set("Content-Type", "application/json")
 
-	response, err1 := httpclient.Get(url)
-	//response2 := &httpclient.Response{}
-	//response2 := response.Response
-	//
-	//body, err2 := response.ToString()
+	client := &http.Client{}
+	response, err := client.Do(req)
+	if err != nil {
+		panic(err)
+	}
+	defer response.Body.Close()
+
+	dump, _ := httputil.DumpResponse(response, true)
 
 	logRequest.WithFields(log.Fields{
-		"error_http_client": err1,
-		//"error_to_string": err2,
 		"status_code":   response.StatusCode,
-		"response_body": response.Response.Body,
+		"response_body": strings.Split(string(dump), "\r\n\r\n")[1],
 	}).Info("End request")
 
-	return response.Response
+	return response
 }
 
 func decode(response *http.Response, model interface{}) {

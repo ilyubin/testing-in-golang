@@ -10,6 +10,7 @@ import (
 	"os"
 	"fmt"
 	"testing-in-golang/framework/swapi"
+	"github.com/onsi/ginkgo/reporters"
 )
 
 func TestApi(t *testing.T) {
@@ -17,7 +18,8 @@ func TestApi(t *testing.T) {
 	setupLog()
 	setupApp()
 	gomega.RegisterFailHandler(ginkgo.Fail)
-	ginkgo.RunSpecs(t, "Api")
+	junitReporter := reporters.NewJUnitReporter("../junit.xml")
+	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Api", []ginkgo.Reporter{junitReporter})
 }
 
 func setupCfg() {

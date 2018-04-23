@@ -29,9 +29,10 @@ func (c *HttpClient) GetOk(path string, model interface{}) {
 	decode(response, &model)
 }
 
-func (c *HttpClient) GetErr(path string, statusCode int) {
+func (c *HttpClient) GetErr(path string, statusCode int, model interface{}) {
 	response := c.get(path)
 	Ω(response.StatusCode).Should(Equal(statusCode))
+	decode(response, &model)
 }
 
 func (c *HttpClient) get(path string) *http.Response {

@@ -28,6 +28,7 @@ func GetPerson(num int) (out model.PersonResponse) {
 	return
 }
 
-func GetPersonErr(num int, statusCode int) {
-	api.GetErr(fmt.Sprintf("/people/%d", num), statusCode)
+func GetPersonErr(num int, statusCode int) (out model.ErrorResponse) {
+	api.GetErr(fmt.Sprintf("/people/%d", num), statusCode, &out)
+	return
 }

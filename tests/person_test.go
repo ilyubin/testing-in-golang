@@ -15,6 +15,7 @@ var _ = Describe("GET /people/1", func() {
 	})
 
 	It("404 if nonexistent personId", func() {
-		swapi.GetPersonErr(0, http.StatusNotFound)
+		err := swapi.GetPersonErr(0, http.StatusNotFound)
+		Ω(err.Detail).Should(Equal("Not found"))
 	})
 })

@@ -16,4 +16,4 @@
 .idea
 vendor
 allure-report
-junit.xml
+junit*.xml

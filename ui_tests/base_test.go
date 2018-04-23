@@ -1,4 +1,4 @@
-package tests
+package ui_tests
 
 import (
 	"github.com/onsi/ginkgo"
@@ -8,7 +8,6 @@ import (
 	"testing"
 
 	"os"
-	"testing-in-golang/framework/swapi"
 	"github.com/onsi/ginkgo/reporters"
 	"fmt"
 	"github.com/onsi/ginkgo/config"
@@ -17,10 +16,10 @@ import (
 func TestApi(t *testing.T) {
 	setupCfg()
 	setupLog()
-	setupApp()
+	//setupApp()
 	gomega.RegisterFailHandler(ginkgo.Fail)
 	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("../junit_%d.xml", config.GinkgoConfig.ParallelNode))
-	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Api", []ginkgo.Reporter{junitReporter})
+	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Ui", []ginkgo.Reporter{junitReporter})
 }
 
 func setupCfg() {
@@ -39,9 +38,9 @@ func setupLog() {
 	log.SetLevel(log.DebugLevel)
 }
 
-func setupApp() {
-	swapi.Init()
-}
+//func setupApp() {
+//	swapi.Init()
+//}
 
 var _ = ginkgo.BeforeSuite(func() {
 	log.WithFields(log.Fields{

@@ -1,2 +1,5 @@
 [swapi]
 base_url = "https://swapi.co/api"
+
+[httpbin]
+base_url = "http://httpbin.org"

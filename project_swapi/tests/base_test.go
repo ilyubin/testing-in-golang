@@ -1,4 +1,4 @@
-package tests
+package swapi_tests
 
 import (
 	"github.com/onsi/ginkgo"
@@ -8,10 +8,10 @@ import (
 	"testing"
 
 	"os"
-	"testing-in-golang/framework/swapi"
 	"github.com/onsi/ginkgo/reporters"
 	"fmt"
 	"github.com/onsi/ginkgo/config"
+	"testing-in-golang/project_swapi/framework/swapi"
 )
 
 func TestApi(t *testing.T) {
@@ -19,13 +19,13 @@ func TestApi(t *testing.T) {
 	setupLog()
 	setupApp()
 	gomega.RegisterFailHandler(ginkgo.Fail)
-	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("../junit_%d.xml", config.GinkgoConfig.ParallelNode))
+	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("junit_%d.xml", config.GinkgoConfig.ParallelNode))
 	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Api", []ginkgo.Reporter{junitReporter})
 }
 
 func setupCfg() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("..")
+	viper.AddConfigPath("../..")
 
 	err := viper.ReadInConfig()
 	if err != nil {

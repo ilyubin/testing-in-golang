@@ -1,7 +1,7 @@
-package tests
+package swapi_tests
 
 import (
-	"testing-in-golang/framework/swapi"
+	"testing-in-golang/project_swapi/framework/swapi"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

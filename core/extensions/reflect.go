@@ -8,11 +8,11 @@ func FunctionName() string {
 	return caller(2)
 }
 
-func CallerName() string {
+func ParentalFunctionName() string {
 	return caller(3)
 }
 
-func CallerName2() string {
+func GrandParentalFunctionName() string {
 	return caller(4)
 }
 

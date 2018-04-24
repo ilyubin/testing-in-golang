@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/ahmetb/go-linq"
+  packages = ["."]
+  revision = "7e71c124c1f903df09ca08678f145f68b45d125e"
+  version = "v3.0.0"
+
+[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
@@ -91,6 +97,19 @@
   packages = ["."]
   revision = "acdc4509485b587f5e675510c4f2c63e90ff68a8"
   version = "v1.1.0"
+
+[[projects]]
+  name = "github.com/sclevine/agouti"
+  packages = [
+    ".",
+    "api",
+    "api/internal/bus",
+    "api/internal/service",
+    "internal/element",
+    "internal/target"
+  ]
+  revision = "e3f6c97a4077ad821daab49db8172cf9f6690faf"
+  version = "v3.0.0"
 
 [[projects]]
   name = "github.com/sirupsen/logrus"
@@ -192,6 +211,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fdff8f67b1424d22746608d5af89ff5d49a6da831c8c2f240e0edaa2be6eb481"
+  inputs-digest = "63d264f6fe38ea16967c560ed698831659003c4f6c6b3a24b6a8bd063c8f29b0"
   solver-name = "gps-cdcl"
   solver-version = 1

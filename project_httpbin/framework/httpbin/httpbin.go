@@ -18,7 +18,7 @@ func GetGet() (out model.GetResponse) {
 	return
 }
 
-func PostPost(in model.PostRequest) (out model.GetResponse) {
+func PostPost(in model.PostRequest) (out model.PostResponse) {
 	api.Post("/post", in, http.StatusOK, &out)
 	return
 }

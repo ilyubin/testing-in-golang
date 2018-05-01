@@ -33,3 +33,18 @@ func GetPersonErr(num int, statusCode int) (out model.ErrorResponse) {
 	api.Get(fmt.Sprintf("/people/%d", num), statusCode, &out)
 	return
 }
+
+func GetPlanets() (out model.PlanetsResponse) {
+	api.Get("/planets", http.StatusOK, &out)
+	return
+}
+
+func GetPlanet(num int) (out model.PlanetResponse) {
+	api.Get(fmt.Sprintf("/planets/%d", num), http.StatusOK, &out)
+	return
+}
+
+func GetPlanetErr(num int, statusCode int) (out model.ErrorResponse) {
+	api.Get(fmt.Sprintf("/planets/%d", num), statusCode, &out)
+	return
+}

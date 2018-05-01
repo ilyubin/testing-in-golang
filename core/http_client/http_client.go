@@ -8,7 +8,6 @@ import (
 	"testing-in-golang/core/extensions"
 
 	"github.com/google/uuid"
-	. "github.com/onsi/gomega"
 	log "github.com/sirupsen/logrus"
 	"net/http/httputil"
 	"bytes"
@@ -27,14 +26,20 @@ func Init(baseUrl string) HttpClient {
 
 func (c *HttpClient) Get(path string, statusCode int, out interface{}) {
 	response := c.get(path)
-	Ω(response.StatusCode).Should(Equal(statusCode))
+	checkStatusCode(response.StatusCode, statusCode)
 	decode(response, &out)
 }
 
 func (c *HttpClient) Post(path string, in interface{}, statusCode int, out interface{}) {
 	response := c.post(path, in)
-	Ω(response.StatusCode).Should(Equal(statusCode))
+	checkStatusCode(response.StatusCode, statusCode)
 	decode(response, &out)
+}
+
+func checkStatusCode(actualStatusCode int, expectedStatusCode int) {
+	if actualStatusCode != expectedStatusCode {
+		log.Fatalf("Status code is %d, expected %d", actualStatusCode, expectedStatusCode)
+	}
 }
 
 func (c *HttpClient) get(path string) *http.Response {

@@ -2,10 +2,10 @@ package swapi
 
 import (
 	"fmt"
-	"testing-in-golang/core/http_client"
-	"testing-in-golang/project_swapi/framework/swapi/model"
 	"github.com/spf13/viper"
 	"net/http"
+	"testing-in-golang/core/http_client"
+	"testing-in-golang/project_swapi/framework/swapi/model"
 )
 
 var api http_client.HttpClient
@@ -19,7 +19,7 @@ func GetUrls() (out model.RootResponse) {
 	return
 }
 
-func GerPeople() (out model.PeopleResponse) {
+func GetPeople() (out model.PeopleResponse) {
 	api.Get("/people", http.StatusOK, &out)
 	return
 }
@@ -46,5 +46,20 @@ func GetPlanet(num int) (out model.PlanetResponse) {
 
 func GetPlanetErr(num int, statusCode int) (out model.ErrorResponse) {
 	api.Get(fmt.Sprintf("/planets/%d", num), statusCode, &out)
+	return
+}
+
+func GetFilms() (out model.FilmsResponse) {
+	api.Get("/films", http.StatusOK, &out)
+	return
+}
+
+func GetFilm(num int) (out model.FilmResponse) {
+	api.Get(fmt.Sprintf("/films/%d", num), http.StatusOK, &out)
+	return
+}
+
+func GetFilmErr(num int, statusCode int) (out model.ErrorResponse) {
+	api.Get(fmt.Sprintf("/films/%d", num), statusCode, &out)
 	return
 }

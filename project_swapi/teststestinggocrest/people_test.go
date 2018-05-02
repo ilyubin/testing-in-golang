@@ -1,4 +1,4 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
 	"github.com/corbym/gocrest/is"

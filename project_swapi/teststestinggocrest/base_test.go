@@ -1,10 +1,10 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
-	"testing-in-golang/project_swapi/framework/swapi"
-	"github.com/spf13/viper"
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 	"os"
+	"testing-in-golang/project_swapi/framework/swapi"
 )
 
 func init() {

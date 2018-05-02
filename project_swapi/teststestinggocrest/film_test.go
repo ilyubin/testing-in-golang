@@ -1,4 +1,4 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
 	"github.com/corbym/gocrest/is"
@@ -22,6 +22,6 @@ func Test_GetFilm_200_film_2(t *testing.T) {
 
 func Test_GetFilm_404_if_nonexistent_filmId(t *testing.T) {
 	t.Parallel()
-	err := swapi.GetPersonErr(0, http.StatusNotFound)
+	err := swapi.GetFilmErr(0, http.StatusNotFound)
 	then.AssertThat(t, err.Detail, is.EqualTo("Not found"))
 }

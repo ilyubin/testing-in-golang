@@ -1,4 +1,4 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
 	"github.com/corbym/gocrest/has"
@@ -7,8 +7,8 @@ import (
 	"testing-in-golang/project_swapi/framework/swapi"
 )
 
-func Test_GetFilms_200(t *testing.T) {
+func Test_GetPlanets_200(t *testing.T) {
 	t.Parallel()
-	films := swapi.GetFilms()
-	then.AssertThat(t, films.Results, has.Length(7))
+	planets := swapi.GetPlanets()
+	then.AssertThat(t, planets.Results, has.Length(10))
 }

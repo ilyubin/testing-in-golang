@@ -1,4 +1,4 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
 	"github.com/corbym/gocrest/is"
@@ -16,7 +16,7 @@ func Test_GetPlanet_200(t *testing.T) {
 
 func Test_GetPlanet_404_if_nonexistent_planetId(t *testing.T) {
 	t.Parallel()
-	err := swapi.GetPersonErr(0, http.StatusNotFound)
+	err := swapi.GetPlanetErr(0, http.StatusNotFound)
 	then.AssertThat(t, err.Detail, is.EqualTo("Not found"))
 }
 

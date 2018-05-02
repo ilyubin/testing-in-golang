@@ -63,3 +63,18 @@ func GetFilmErr(num int, statusCode int) (out model.ErrorResponse) {
 	api.Get(fmt.Sprintf("/films/%d", num), statusCode, &out)
 	return
 }
+
+func GetStarships() (out model.StarshipsResponse) {
+	api.Get("/starships", http.StatusOK, &out)
+	return
+}
+
+func GetStarship(num int) (out model.StarshipResponse) {
+	api.Get(fmt.Sprintf("/starships/%d", num), http.StatusOK, &out)
+	return
+}
+
+func GetStarshipErr(num int, statusCode int) (out model.ErrorResponse) {
+	api.Get(fmt.Sprintf("/starships/%d", num), statusCode, &out)
+	return
+}

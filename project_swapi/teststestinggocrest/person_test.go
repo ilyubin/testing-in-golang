@@ -1,4 +1,4 @@
-package tests_testing_gocrest
+package teststestinggocrest
 
 import (
 	"github.com/corbym/gocrest/is"
@@ -12,6 +12,8 @@ func Test_GetPerson_200(t *testing.T) {
 	t.Parallel()
 	person := swapi.GetPerson(1)
 	then.AssertThat(t, person.Name, is.EqualTo("Luke Skywalker"))
+	then.AssertThat(t, person.HairColor, is.EqualTo("blond"))
+	then.AssertThat(t, person.EyeColor, is.EqualTo("blue"))
 }
 
 func Test_GetPerson_404_if_nonexistent_personId(t *testing.T) {

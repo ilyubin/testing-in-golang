@@ -2,10 +2,10 @@ package swapi
 
 import (
 	"fmt"
+	"github.com/ilyubin/go-packages/http_client"
 	"github.com/spf13/viper"
 	"net/http"
-	"testing-in-golang/core/http_client"
-	"testing-in-golang/project_swapi/framework/swapi/model"
+	"testing-in-golang/framework/swapi/model"
 )
 
 var api http_client.HttpClient

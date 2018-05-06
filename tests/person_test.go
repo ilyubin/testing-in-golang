@@ -28,3 +28,11 @@ func Test_GetPerson_404_if_nonexistent_personId(t *testing.T) {
 	err := swapi.GetPersonErr(0, http.StatusNotFound)
 	then.AssertThat(t, err.Detail, is.EqualTo("Not found"))
 }
+
+func Test_GetPerson_200_person_1_te(t *testing.T) {
+	t.Parallel()
+	person := swapi.GetPerson(5)
+	if person.Name != "Luke Skywalker" {
+		t.Errorf("Expected person.Name \"Luke Skywalker\", but was %q.", person.Name)
+	}
+}

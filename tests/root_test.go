@@ -1,14 +1,14 @@
-package swapi_tests
+package tests
 
 import (
-	"testing-in-golang/project_swapi/framework/swapi"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"testing-in-golang/framework/swapi"
 )
 
-var _ = Describe("GET /", func() {
+var _ = Describe("Handler GET /", func() {
 
-	It("200 and should return urls", func() {
+	It("should return 200 and urls", func() {
 		body := swapi.GetUrls()
 		Ω(body.People).ShouldNot(BeEmpty())
 		Ω(body.Films).ShouldNot(BeEmpty())

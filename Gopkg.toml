@@ -21,7 +21,7 @@
 #
 # [prune]
 #   non-go = false
-#   go-tests_ginkgo = true
+#   go-tests = true
 #   unused-packages = true
 
 

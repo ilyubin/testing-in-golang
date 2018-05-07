@@ -1,38 +1,25 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	. "gopkg.in/check.v1"
 	"net/http"
-	"testing"
 	"testing-in-golang/framework/swapi"
 )
 
-func Test_GetPerson_200_person_1(t *testing.T) {
-	t.Parallel()
+func (s *MySuite) Test_GetPerson_200_person_1(c *C) {
 	person := swapi.GetPerson(1)
-	then.AssertThat(t, person.Name, is.EqualTo("Luke Skywalker"))
-	then.AssertThat(t, person.HairColor, is.EqualTo("blond"))
-	then.AssertThat(t, person.EyeColor, is.EqualTo("blue"))
+	c.Assert(person.Name, Equals, "Luke Skywalker")
+	c.Assert(person.HairColor, Equals, "blond")
+	c.Assert(person.EyeColor, Equals, "blue")
 }
 
-func Test_GetPerson_200_person_3(t *testing.T) {
-	t.Parallel()
+func (s *MySuite) Test_GetPerson_200_person_3(c *C) {
 	person := swapi.GetPerson(3)
-	then.AssertThat(t, person.Name, is.EqualTo("R2-D2"))
-	then.AssertThat(t, person.EyeColor, is.EqualTo("red"))
+	c.Assert(person.Name, Equals, "R2-D2")
+	c.Assert(person.EyeColor, Equals, "red")
 }
 
-func Test_GetPerson_404_if_nonexistent_personId(t *testing.T) {
-	t.Parallel()
+func (s *MySuite) Test_GetPerson_404_if_nonexistent_personId(c *C) {
 	err := swapi.GetPersonErr(0, http.StatusNotFound)
-	then.AssertThat(t, err.Detail, is.EqualTo("Not found"))
-}
-
-func Test_GetPerson_200_person_1_te(t *testing.T) {
-	t.Parallel()
-	person := swapi.GetPerson(5)
-	if person.Name != "Luke Skywalker" {
-		t.Errorf("Expected person.Name \"Luke Skywalker\", but was %q.", person.Name)
-	}
+	c.Assert(err.Detail, Equals, "Not found")
 }

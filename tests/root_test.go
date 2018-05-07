@@ -1,8 +1,7 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	"github.com/stretchr/testify/assert"
 	"testing"
 	"testing-in-golang/framework/swapi"
 )
@@ -10,5 +9,5 @@ import (
 func Test_GetRoot_200(t *testing.T) {
 	t.Parallel()
 	body := swapi.GetUrls()
-	then.AssertThat(t, body.People, is.ValueContaining("http"))
+	assert.Contains(t, body.People, "http")
 }

@@ -1,14 +1,14 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"
 	"testing-in-golang/framework/swapi"
 )
 
 func Test_GetFilm_200(t *testing.T) {
+	t.Parallel()
 	cases := []struct {
 		FilmId int
 		Title  string
@@ -23,12 +23,12 @@ func Test_GetFilm_200(t *testing.T) {
 	}
 	for _, c := range cases {
 		film := swapi.GetFilm(c.FilmId)
-		then.AssertThat(t, film.Title, is.EqualTo(c.Title))
+		assert.Equal(t, film.Title, c.Title)
 	}
 }
 
 func Test_GetFilm_404_if_nonexistent_filmId(t *testing.T) {
 	t.Parallel()
 	err := swapi.GetFilmErr(0, http.StatusNotFound)
-	then.AssertThat(t, err.Detail, is.EqualTo("Not found"))
+	assert.Equal(t, err.Detail, "Not found")
 }

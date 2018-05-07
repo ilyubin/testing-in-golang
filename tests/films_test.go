@@ -1,8 +1,7 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	"github.com/stretchr/testify/assert"
 	"testing"
 	"testing-in-golang/framework/swapi"
 )
@@ -10,5 +9,5 @@ import (
 func Test_GetFilms_200(t *testing.T) {
 	t.Parallel()
 	films := swapi.GetFilms()
-	then.AssertThat(t, films.Count, is.EqualTo(7))
+	assert.Equal(t, films.Count, 7)
 }

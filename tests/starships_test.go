@@ -1,8 +1,7 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	"github.com/stretchr/testify/assert"
 	"testing"
 	"testing-in-golang/framework/swapi"
 )
@@ -10,5 +9,5 @@ import (
 func Test_GetStartships_200(t *testing.T) {
 	t.Parallel()
 	ships := swapi.GetStarships()
-	then.AssertThat(t, ships.Count, is.EqualTo(37))
+	assert.Equal(t, ships.Count, 37)
 }

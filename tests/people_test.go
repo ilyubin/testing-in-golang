@@ -1,8 +1,7 @@
 package tests
 
 import (
-	"github.com/corbym/gocrest/is"
-	"github.com/corbym/gocrest/then"
+	"github.com/stretchr/testify/assert"
 	"testing"
 	"testing-in-golang/framework/swapi"
 )
@@ -10,12 +9,12 @@ import (
 func Test_GetPeople_200(t *testing.T) {
 	t.Parallel()
 	people := swapi.GetPeople()
-	then.AssertThat(t, people.Count, is.EqualTo(87))
+	assert.Equal(t, people.Count, 87)
 }
 
 func Test_GetPeople_200_twice(t *testing.T) {
 	t.Parallel()
 	people1 := swapi.GetPeople()
 	people2 := swapi.GetPeople()
-	then.AssertThat(t, people2, is.EqualTo(people1))
+	assert.Equal(t, people2, people1)
 }

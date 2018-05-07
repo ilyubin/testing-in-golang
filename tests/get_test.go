@@ -3,7 +3,7 @@ package swapi_tests
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"testing-in-golang/project_httpbin/framework/httpbin"
+	"testing-in-golang/framework/httpbin"
 )
 
 var _ = Describe("GET /get", func() {

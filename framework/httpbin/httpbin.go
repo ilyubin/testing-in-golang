@@ -1,10 +1,10 @@
 package httpbin
 
 import (
-	"testing-in-golang/core/http_client"
-	"testing-in-golang/project_httpbin/framework/httpbin/model"
+	"github.com/ilyubin/go-packages/http_client"
 	"github.com/spf13/viper"
 	"net/http"
+	"testing-in-golang/framework/httpbin/model"
 )
 
 var api http_client.HttpClient

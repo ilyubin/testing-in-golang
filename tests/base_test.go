@@ -1,4 +1,4 @@
-package ui_tests
+package swapi_tests
 
 import (
 	"github.com/onsi/ginkgo"
@@ -7,24 +7,26 @@ import (
 	"github.com/spf13/viper"
 	"testing"
 
-	"os"
-	"github.com/onsi/ginkgo/reporters"
 	"fmt"
 	"github.com/onsi/ginkgo/config"
+	"github.com/onsi/ginkgo/reporters"
+	"os"
+	"testing-in-golang/framework/httpbin"
 )
 
 func TestApi(t *testing.T) {
 	setupCfg()
 	setupLog()
-	//setupApp()
+	setupApp()
 	gomega.RegisterFailHandler(ginkgo.Fail)
-	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("../junit_%d.xml", config.GinkgoConfig.ParallelNode))
-	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Ui", []ginkgo.Reporter{junitReporter})
+	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("junit_%d.xml", config.GinkgoConfig.ParallelNode))
+	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Api", []ginkgo.Reporter{junitReporter})
 }
 
 func setupCfg() {
 	viper.SetConfigName("config")
 	viper.AddConfigPath("..")
+	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -38,9 +40,9 @@ func setupLog() {
 	log.SetLevel(log.DebugLevel)
 }
 
-//func setupApp() {
-//	project_swapi.Init()
-//}
+func setupApp() {
+	httpbin.Init()
+}
 
 var _ = ginkgo.BeforeSuite(func() {
 	log.WithFields(log.Fields{

@@ -3,23 +3,18 @@ package tests
 import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	. "gopkg.in/check.v1"
+	"gopkg.in/h2non/baloo.v3"
 	"os"
-	"testing"
-	"testing-in-golang/framework/swapi"
 )
+
+var BalooClient *baloo.Client
 
 func init() {
 	setupCfg()
 	setupLog()
 	setupApp()
+
 }
-
-func Test(t *testing.T) { TestingT(t) }
-
-type MySuite struct{}
-
-var _ = Suite(&MySuite{})
 
 func setupCfg() {
 	viper.SetConfigName("config")
@@ -39,5 +34,5 @@ func setupLog() {
 }
 
 func setupApp() {
-	swapi.Init()
+	BalooClient = baloo.New(viper.GetString("swapi.base_url"))
 }

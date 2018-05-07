@@ -2,22 +2,10 @@
 
 
 [[projects]]
-  name = "github.com/ahmetb/go-linq"
-  packages = ["."]
-  revision = "7e71c124c1f903df09ca08678f145f68b45d125e"
-  version = "v3.0.0"
-
-[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
   version = "v1.4.7"
-
-[[projects]]
-  name = "github.com/google/uuid"
-  packages = ["."]
-  revision = "064e2069ce9c359c118179501254f67d7d37ba24"
-  version = "0.2"
 
 [[projects]]
   branch = "master"
@@ -35,12 +23,6 @@
     "json/token"
   ]
   revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/ilyubin/go-packages"
-  packages = ["http_client"]
-  revision = "c7f7bf0ba56dfc66bb6ee4964a95049bb605b292"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -101,9 +83,36 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/xeipuuv/gojsonpointer"
+  packages = ["."]
+  revision = "4e3ac2762d5f479393488629ee9370b50873b3a6"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xeipuuv/gojsonreference"
+  packages = ["."]
+  revision = "bd5ef7bd5415a7ac448318e64f11a24cd21e594b"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xeipuuv/gojsonschema"
+  packages = ["."]
+  revision = "2c8e4be869c17540b336bab0ea18b8d73e6a28b7"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   revision = "d6449816ce06963d9d136eee5a56fca5b0616e7e"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = [
+    "idna",
+    "publicsuffix"
+  ]
+  revision = "d11bb6cd8e3c4e60239c9cb20ef68586d74500d0"
 
 [[projects]]
   branch = "master"
@@ -117,21 +126,52 @@
 [[projects]]
   name = "golang.org/x/text"
   packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
     "internal/gen",
+    "internal/tag",
     "internal/triegen",
     "internal/ucd",
+    "language",
+    "secure/bidirule",
     "transform",
+    "unicode/bidi",
     "unicode/cldr",
-    "unicode/norm"
+    "unicode/norm",
+    "unicode/rangetable"
   ]
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
 
 [[projects]]
-  branch = "v1"
-  name = "gopkg.in/check.v1"
-  packages = ["."]
-  revision = "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec"
+  name = "gopkg.in/h2non/baloo.v3"
+  packages = [
+    ".",
+    "assert"
+  ]
+  revision = "bcac7e061d45d1443121ab1868b8907c0d233f38"
+  version = "v3.0.0"
+
+[[projects]]
+  name = "gopkg.in/h2non/gentleman.v2"
+  packages = [
+    ".",
+    "context",
+    "middleware",
+    "mux",
+    "plugin",
+    "plugins/body",
+    "plugins/bodytype",
+    "plugins/cookies",
+    "plugins/headers",
+    "plugins/multipart",
+    "plugins/query",
+    "plugins/url",
+    "utils"
+  ]
+  revision = "e0f81be2f4064ea7aa7470e9daddd2dc8e8152c7"
+  version = "v2.0.3"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -142,6 +182,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c5ddc3d2d4d847f8904bc5c432f111fc9380bf76d1cd284e6ad768bf96f86a83"
+  inputs-digest = "bc39462f06f25c8275c636228f5f04e4112b357b2d99de007a0728db43520044"
   solver-name = "gps-cdcl"
   solver-version = 1

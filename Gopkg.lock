@@ -2,39 +2,16 @@
 
 
 [[projects]]
-  name = "github.com/ahmetb/go-linq"
-  packages = ["."]
-  revision = "7e71c124c1f903df09ca08678f145f68b45d125e"
-  version = "v3.0.0"
-
-[[projects]]
-  name = "github.com/corbym/gocrest"
-  packages = [
-    ".",
-    "has",
-    "is",
-    "then"
-  ]
-  revision = "f9449d272153928bfef651d4595590953d34b611"
-  version = "v1.0.3"
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
   version = "v1.4.7"
-
-[[projects]]
-  name = "github.com/google/uuid"
-  packages = ["."]
-  revision = "064e2069ce9c359c118179501254f67d7d37ba24"
-  version = "0.2"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/gopherjs/gopherjs"
-  packages = ["js"]
-  revision = "8dffc02ea1cb8398bb73f30424697c60fcf8d4c5"
 
 [[projects]]
   branch = "master"
@@ -54,12 +31,6 @@
   revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
 
 [[projects]]
-  name = "github.com/jtolds/gls"
-  packages = ["."]
-  revision = "77f18212c9c7edc9bd6a33d383a7b545ce62f064"
-  version = "v4.2.1"
-
-[[projects]]
   name = "github.com/magiconair/properties"
   packages = ["."]
   revision = "c3beff4c2358b44d0493c7dda585e7db7ff28ae6"
@@ -72,54 +43,16 @@
   revision = "00c29f56e2386353d58c599509e8dc3801b0d716"
 
 [[projects]]
-  name = "github.com/onsi/ginkgo"
-  packages = [
-    ".",
-    "config",
-    "internal/codelocation",
-    "internal/containernode",
-    "internal/failer",
-    "internal/leafnodes",
-    "internal/remote",
-    "internal/spec",
-    "internal/spec_iterator",
-    "internal/specrunner",
-    "internal/suite",
-    "internal/testingtproxy",
-    "internal/writer",
-    "reporters",
-    "reporters/stenographer",
-    "reporters/stenographer/support/go-colorable",
-    "reporters/stenographer/support/go-isatty",
-    "types"
-  ]
-  revision = "9eda700730cba42af70d53180f9dcce9266bc2bc"
-  version = "v1.4.0"
-
-[[projects]]
-  name = "github.com/onsi/gomega"
-  packages = [
-    ".",
-    "format",
-    "internal/assertion",
-    "internal/asyncassertion",
-    "internal/oraclematcher",
-    "internal/testingtsupport",
-    "matchers",
-    "matchers/support/goraph/bipartitegraph",
-    "matchers/support/goraph/edge",
-    "matchers/support/goraph/node",
-    "matchers/support/goraph/util",
-    "types"
-  ]
-  revision = "003f63b7f4cff3fc95357005358af2de0f5fe152"
-  version = "v1.3.0"
-
-[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
   revision = "acdc4509485b587f5e675510c4f2c63e90ff68a8"
   version = "v1.1.0"
+
+[[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/sclevine/agouti"
@@ -139,26 +72,6 @@
   packages = ["."]
   revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
   version = "v1.0.5"
-
-[[projects]]
-  name = "github.com/smartystreets/assertions"
-  packages = [
-    ".",
-    "internal/go-render/render",
-    "internal/oglematchers"
-  ]
-  revision = "7678a5452ebea5b7090a6b163f844c133f523da2"
-  version = "1.8.3"
-
-[[projects]]
-  name = "github.com/smartystreets/goconvey"
-  packages = [
-    "convey",
-    "convey/gotest",
-    "convey/reporting"
-  ]
-  revision = "9e8dc3f972df6c8fcc0375ef492c24d0bb204857"
-  version = "1.6.3"
 
 [[projects]]
   name = "github.com/spf13/afero"
@@ -194,20 +107,16 @@
   version = "v1.0.2"
 
 [[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
+  version = "v1.2.1"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   revision = "d6449816ce06963d9d136eee5a56fca5b0616e7e"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/net"
-  packages = [
-    "html",
-    "html/atom",
-    "html/charset"
-  ]
-  revision = "d41e8174641f662c5a2d1c7a5f9e828788eb8706"
 
 [[projects]]
   branch = "master"
@@ -221,23 +130,9 @@
 [[projects]]
   name = "golang.org/x/text"
   packages = [
-    "encoding",
-    "encoding/charmap",
-    "encoding/htmlindex",
-    "encoding/internal",
-    "encoding/internal/identifier",
-    "encoding/japanese",
-    "encoding/korean",
-    "encoding/simplifiedchinese",
-    "encoding/traditionalchinese",
-    "encoding/unicode",
     "internal/gen",
-    "internal/tag",
     "internal/triegen",
     "internal/ucd",
-    "internal/utf8internal",
-    "language",
-    "runes",
     "transform",
     "unicode/cldr",
     "unicode/norm"
@@ -254,6 +149,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "905e26bd54724e8ebb9c24fbe7da370b7034a49eedaecbfb53c1efb2d62149ee"
+  inputs-digest = "4ddcca91cff32c36507db19200c666fa95249b3df5f79199004f85b31ab4d378"
   solver-name = "gps-cdcl"
   solver-version = 1

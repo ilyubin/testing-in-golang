@@ -1,21 +1,22 @@
-package teststestinggocrest
+package tests
 
 import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
-	"testing-in-golang/project_swapi/framework/swapi"
+	"testing-in-golang/fw"
 )
 
 func init() {
 	setupCfg()
 	setupLog()
-	setupApp()
+	setupDriver()
 }
 
 func setupCfg() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../..")
+	viper.AddConfigPath("..")
+	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -29,6 +30,6 @@ func setupLog() {
 	log.SetLevel(log.DebugLevel)
 }
 
-func setupApp() {
-	swapi.Init()
+func setupDriver() {
+	fw.Init()
 }

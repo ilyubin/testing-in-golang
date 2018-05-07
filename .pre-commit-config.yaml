@@ -3,4 +3,4 @@
   hooks:
   - id: go-fmt
 #  - id: go-vet
-  - id: go-lint
+#  - id: go-lint

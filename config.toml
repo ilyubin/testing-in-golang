@@ -1,5 +1,5 @@
-[swapi]
-base_url = "https://swapi.co/api"
+[yandex]
+base_url = "https://ya.ru"
 
-[httpbin]
-base_url = "http://httpbin.org"
+[driver]
+browser = "chrome"

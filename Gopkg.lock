@@ -8,16 +8,6 @@
   version = "v3.0.0"
 
 [[projects]]
-  name = "github.com/corbym/gocrest"
-  packages = [
-    ".",
-    "is",
-    "then"
-  ]
-  revision = "f9449d272153928bfef651d4595590953d34b611"
-  version = "v1.0.3"
-
-[[projects]]
   name = "github.com/fsnotify/fsnotify"
   packages = ["."]
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
@@ -152,6 +142,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8ce47818db2be5c9dd84a78b91d7ced4873c90aeaa1f8856a84d27d51fc3ca14"
+  inputs-digest = "c5ddc3d2d4d847f8904bc5c432f111fc9380bf76d1cd284e6ad768bf96f86a83"
   solver-name = "gps-cdcl"
   solver-version = 1

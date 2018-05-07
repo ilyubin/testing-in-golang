@@ -19,7 +19,8 @@ func TestApi(t *testing.T) {
 	setupLog()
 	setupApp()
 	gomega.RegisterFailHandler(ginkgo.Fail)
-	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("junit_%d.xml", config.GinkgoConfig.ParallelNode))
+	node := config.GinkgoConfig.ParallelNode
+	junitReporter := reporters.NewJUnitReporter(fmt.Sprintf("junit_%d.xml", node))
 	ginkgo.RunSpecsWithDefaultAndCustomReporters(t, "Api", []ginkgo.Reporter{junitReporter})
 }
 

@@ -8,7 +8,6 @@ import (
 )
 
 var _ = Describe("Handler GET /people/1", func() {
-
 	It("should return 200 if personId = 1", func() {
 		person := swapi.GetPerson(1)
 		Ω(person.Name).Should(Equal("Luke Skywalker"))

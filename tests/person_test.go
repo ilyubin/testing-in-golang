@@ -15,6 +15,12 @@ var _ = Describe("Handler GET /people/1", func() {
 		Ω(person.EyeColor).Should(Equal("blue"))
 	})
 
+	It("should return 200 if personId = 3", func() {
+		person := swapi.GetPerson(3)
+		Ω(person.Name).Should(Equal("R2-D2"))
+		Ω(person.EyeColor).Should(Equal("red"))
+	})
+
 	It("should return 404 if nonexistent personId", func() {
 		err := swapi.GetPersonErr(0, http.StatusNotFound)
 		Ω(err.Detail).Should(Equal("Not found"))

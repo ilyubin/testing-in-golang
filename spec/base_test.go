@@ -1,7 +1,7 @@
-package tests
+package spec
 
 import (
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"os"
 	"testing-in-golang/framework/swapi"
@@ -25,9 +25,9 @@ func setupCfg() {
 }
 
 func setupLog() {
-	log.SetFormatter(&log.JSONFormatter{})
-	log.SetOutput(os.Stdout)
-	log.SetLevel(log.DebugLevel)
+	logrus.SetFormatter(&logrus.JSONFormatter{})
+	logrus.SetOutput(os.Stdout)
+	logrus.SetLevel(logrus.DebugLevel)
 }
 
 func setupApp() {

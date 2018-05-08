@@ -7,6 +7,7 @@ import (
 )
 
 var Person model.PersonResponse
+var Error model.ErrorResponse
 
 func SendGetPersonRequest(personId int) error {
 	Person = swapi.GetPerson(personId)
@@ -30,6 +31,18 @@ func ItHairIs(hair string) error {
 func ItEyeIs(eye string) error {
 	if Person.EyeColor != eye {
 		return fmt.Errorf("expected Person EyeColor %q, but was %q", Person.EyeColor, eye)
+	}
+	return nil
+}
+
+func SendGetPersonErrorRequest(personId, statusCode int) error {
+	Error = swapi.GetPersonErr(personId, statusCode)
+	return nil
+}
+
+func ShouldBeError(detail string) error {
+	if Error.Detail != detail {
+		return fmt.Errorf("expected Error Detail %q, but was %q", Error.Detail, detail)
 	}
 	return nil
 }

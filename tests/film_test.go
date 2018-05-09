@@ -1,8 +1,8 @@
-package spec
+package tests
 
 import (
 	"github.com/DATA-DOG/godog"
-	"testing-in-golang/step"
+	"testing-in-golang/framework/step"
 )
 
 func ResetFilm(s *godog.Suite) {

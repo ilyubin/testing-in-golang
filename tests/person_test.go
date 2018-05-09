@@ -1,9 +1,9 @@
-package spec
+package tests
 
 import (
 	"github.com/DATA-DOG/godog"
+	"testing-in-golang/framework/step"
 	"testing-in-golang/framework/swapi/model"
-	"testing-in-golang/step"
 )
 
 func GetPerson_Ok(s *godog.Suite) {

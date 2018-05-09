@@ -1,4 +1,4 @@
-package spec
+package tests
 
 import (
 	"github.com/sirupsen/logrus"

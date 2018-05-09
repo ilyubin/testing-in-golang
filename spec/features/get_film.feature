@@ -3,7 +3,7 @@ Feature: GET film
   Background:
     Given reset film
 
-  Scenario Outline: Should return Luke Skywalker
+  Scenario Outline: Should return film
     When send get film request with <filmId>
     Then should received film <title>
 

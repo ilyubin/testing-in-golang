@@ -17,3 +17,6 @@
 vendor
 allure-report
 junit*.xml
+
+cucumber.json
+node_modules/

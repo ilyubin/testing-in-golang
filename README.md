@@ -1,6 +1,6 @@
 # Testing in GoLang
 
-This is project with few GOLang Testing examples.
+This is project with few GoLang testing examples.
 
 ## Applications Under Test
 
@@ -9,7 +9,7 @@ This is project with few GOLang Testing examples.
 
 ## Branches
 
-* master - here httpbin example
+* `master` - here [httpbin](http://httpbin.org) example
 
 Next branches is about swapi and use corresponding test-frameworks:
 
@@ -38,5 +38,4 @@ Next branch is about UI testing with Agouti
 
 ## Ask
 
-igor.lyubin
-
+[igor.lyubin](https://github.com/ilyubin)

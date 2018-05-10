@@ -11,5 +11,5 @@ func ResetFilm(s *godog.Suite) {
 
 func GetFilm_Ok(s *godog.Suite) {
 	s.Step(`^send get film request with (\d+)$`, step.SendGetFilmRequest)
-	s.Step(`^should received film ([^"]*)$`, step.ShouldReceivedFilm)
+	s.Step(`^should receive film ([^"]*)$`, step.ShouldReceivedFilm)
 }

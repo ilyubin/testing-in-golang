@@ -8,9 +8,9 @@ import (
 
 func GetPerson_Ok(s *godog.Suite) {
 	s.Step(`^send get person request with personId (\d+)$`, step.SendGetPersonRequest)
-	s.Step(`^should received person "([^"]*)"$`, step.ShouldReceivedPerson)
-	s.Step(`^it hair is "([^"]*)"$`, step.ItHairIs)
-	s.Step(`^it eye is "([^"]*)"$`, step.ItEyeIs)
+	s.Step(`^should receive person "([^"]*)"$`, step.ShouldReceivedPerson)
+	s.Step(`hair is "([^"]*)"$`, step.ItHairIs)
+	s.Step(` eye is "([^"]*)"$`, step.ItEyeIs)
 
 	s.BeforeScenario(func(interface{}) {
 		step.Person = model.PersonResponse{}

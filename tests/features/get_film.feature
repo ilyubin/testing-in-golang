@@ -5,7 +5,7 @@ Feature: GET film
 
   Scenario Outline: Should return film
     When send get film request with <filmId>
-    Then should received film <title>
+    Then should receive film <title>
 
     Examples:
       | filmId | title                   |
